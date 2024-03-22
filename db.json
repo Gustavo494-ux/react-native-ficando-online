@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "login": "andreocunha",
+            "id": 1,
+            "avatar_url": "https://avatars.githubusercontent.com/u/54721131?v=4",
+            "nome": "André Oliveira Cunha",
+            "email": "andre@email.com",
+            "follwors": 43,
+            "follwing": 54
+        },
+        {
+            "login": "nataliakt",
+            "id": 2,
+            "avatar_url": "https://avatars.githubusercontent.com/u/9091491?v=4",
+            "nome": "André Oliveira Cunha",
+            "email": "andre@email.com",
+            "follwors": 51,
+            "follwing": 7
+        }
+    ]
+}
