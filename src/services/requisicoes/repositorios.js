@@ -12,7 +12,6 @@ export async function pegarRepositoriosDoUsuarios(id){
 
 export async function alterarRepositoriosDoUsuarios(postId,nome,data,id){
     try {
-        console.log(`dados da requisição postId:${postId}, nome:${nome}, data:${data}, id:${id}`)
         await api.put(`/repos/${id}`,{
             name: nome,
             data: data,
@@ -24,5 +23,20 @@ export async function alterarRepositoriosDoUsuarios(postId,nome,data,id){
     } catch (error) {
         console.log(error)
         return 'erro'
+    }
+}
+
+export async function buscarRepositoriosPeloNome(nome){
+    try {
+        console.log(`nome: ${nome}`);
+        if (nome == '') {
+            return []
+        } else {
+            const resultado = await api.get(`/repos?name=${nome}`);
+            return resultado.data
+        }        
+    } catch (error) {
+        console.log(error)
+        return []
     }
 }

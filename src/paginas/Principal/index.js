@@ -9,7 +9,6 @@ export default function Principal({ navigation }) {
 
     async function busca(){
         const resultado = await buscaUsuario(nomeUsuario);
-        console.log(resultado);        
 
         if (resultado) {
             setUsuario(resultado)
