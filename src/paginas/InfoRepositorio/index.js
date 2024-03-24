@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, TouchableOpacity, TextInput, Alert } from 'react-native';
 import estilos from './estilos';
-import { alterarRepositoriosDoUsuarios } from '../../services/requisicoes/repositorios';
+import { alterarRepositoriosDoUsuarios,deletarRepositorio } from '../../services/requisicoes/repositorios';
 
 export default function InfoRepositorio({ route, navigation }) {
     const [nome, setNome] = useState(route.params.item.name);
@@ -19,6 +19,18 @@ export default function InfoRepositorio({ route, navigation }) {
             Alert.alert('Repositorio atualizado!');
             navigation.goBack()
             
+        } else {
+            console.log(resultado)
+            Alert.alert('Erro ao atualizar repositorio');
+        }
+    }
+
+    async function deletar(){
+        const resultado = await deletarRepositorio(route.params.item.id)
+
+        if (resultado === 'sucesso'){
+            Alert.alert('Repositorio deletado!');
+            navigation.goBack()            
         } else {
             console.log(resultado)
             Alert.alert('Erro ao atualizar repositorio');
@@ -50,6 +62,7 @@ export default function InfoRepositorio({ route, navigation }) {
             </TouchableOpacity>
             <TouchableOpacity 
                 style={[estilos.botao, {backgroundColor: '#DD2B2B', marginTop: 10}]} 
+                onPress={deletar}
             >
                 <Text style={estilos.textoBotao}>
                     Deletar
